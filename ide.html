@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online IDE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/codemirror.min.css">
+    <link rel="stylesheet" href="ide-styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <h1>Taiyari24</h1>
+        <div class="controls">
+            <select id="languageSelector">
+                <option value="python">Python</option>
+                <option value="javascript">JavaScript</option>
+                <option value="java">Java</option>
+                <option value="cpp">C++</option>
+                <option value="c">C</option>
+            </select>
+            <button onclick="runCode()">Run Code</button>
+            <button onclick="debugCode()">Debug</button>
+        </div>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Question</h2>
+            <p>Write a program to find the sum of two numbers.</p>
+            <h3>Expected Input:</h3>
+            <pre>Input: 
+5 10</pre>
+            <h3>Expected Output:</h3>
+            <pre>Output:
+15</pre>
+        </div>
+        <div class="main-section">
+            <div class="editor-container">
+                <textarea id="codeEditor" class="editor" placeholder="Write your code here..."></textarea>
+            </div>
+            <div class="analysis-section">
+                <button id="analyzeBtn" class="analyze-button">Analyze Code</button>
+                <div id="analysisResult" class="analysis-result"></div>
+            </div>
+            <div class="explanation-container">
+                <textarea class="explanation" id="explanation" placeholder="Write your explanation here (min 50 words)..." oninput="checkWordCount()"></textarea>
+                <div class="warning" id="warning">* Explanation should have at least 50 words.</div>
+            </div>
+            <button class="submit-btn" id="submitBtn" disabled>Submit</button>
+        </div>
+    </div>
+
+    <!-- CodeMirror Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/mode/clike/clike.min.js"></script>
+    <script src="ide-scripts.js"></script>
+</body>
+</html>
